@@ -45,7 +45,7 @@
 		<li>이메일 : <%= memail1 %>@<%= memail2 %></li>
 		<li>취미(Map) : 
 			<%
-				if(hobbyMap.isEmpty()) {
+				if(hobbyMap.get("hobby") == null) {
 					out.println("취미없음");
 				} else {
 					for(String hobby : hobbyMap.get("hobby")) { //hobbyMap의 key값만 가져오기
@@ -64,13 +64,15 @@
 					while(hobbyEnum.hasMoreElements()) {
 						String hobby = hobbyEnum.nextElement();
 						//System.out.println(hobby);
-						if(hobby.equals("hobby")) {
+						if(hobby.equals("hobby")) {							 
 							hobbies = request.getParameterValues(hobby);
 						}							
 					}
-					for(String hobby :hobbies) {
-						out.print(hobby +  " / ");
-					}
+					if(hobbies != null) {
+						for(String hobby :hobbies) {
+							out.print(hobby +  " / ");
+						}
+					}	
 				}
 				
 			%>

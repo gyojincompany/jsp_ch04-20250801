@@ -7,7 +7,9 @@
 <title>회원 가입 확인</title>
 </head>
 <body>	
-	<%		
+	<%	
+		request.setCharacterEncoding("UTF-8");//한글 깨짐 방지
+		
 		String mid = request.getParameter("memberid"); //가입한 회원 아이디
 		String mpw = request.getParameter("memberpw"); //가입한 회원 비밀번호
 		String mname = request.getParameter("membername"); //가입한 회원 이름
